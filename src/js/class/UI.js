@@ -5,6 +5,7 @@ import CreateComponent from "./CreateComponent";
 class UI{
     initRenders(){
         this.listCards();
+        this.listCardsHidden();
     }
 
     listCards(){
@@ -21,6 +22,15 @@ class UI{
 
         listCardsBox.append(frag);
     };
+    listCardsHidden(){
+        const currentCards = listCardsBox.children;
+        for( let idx = 0; idx < currentCards.length; idx++ ){
+            const card = currentCards[idx];
+            
+            card.classList.remove('display');
+            card.classList.add('rotate_card');
+        }
+    }
 };
 
 export default new UI();
