@@ -1,5 +1,3 @@
-const body = document.body;
+import App from "./class/App";
 
-body.innerHTML += `
-  <div class="bg-red-500">Eso es</div>
-`;
+const app = new App();

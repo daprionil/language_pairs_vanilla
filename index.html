@@ -7,8 +7,26 @@
     <title>Vite App</title>
     <link rel="stylesheet" href="./src/css/style.css">
   </head>
-  <body>
-    <div id="app"></div>
+  <body class="flex items-center min-h-screen py-10 shadow bg-stone-50">
+    <div class="w-full max-w-4xl mx-auto min-w-sm bg-stone-100">
+      <h1 class="p-4 text-xl font-bold text-center bg-stone-200">GAME PARES</h1>
+      <section class="p-4 bg-stone-300">
+        <article>
+          <p class="p-2 font-semibold text-white uppercase rounded w-fit bg-stone-500 drop-shadow-md">Carta Seleccionada: <span id="card_selected"></span></p>
+        </article>
+      </section>
+      <section class="p-4">
+        <article class="grid grid-cols-3 gap-5" id="list_cards"></article>
+      </section>
+      <section class="flex items-center justify-around p-2 bg-red-600">
+        <button class="font-bold text-white bg-sky-500 btn">
+          Reiniciar
+        </button>
+        <button class="font-bold text-white bg-blue-100 btn bg-slate-600">
+          Aceptar
+        </button>
+      </section>
+    </div>
     <script type="module" src="./src/js/main.js"></script>
   </body>
 </html>
