@@ -26,7 +26,7 @@ class UI{
         const currentCards = listCardsBox.children;
         for( let idx = 0; idx < currentCards.length; idx++ ){
             const card = currentCards[idx];
-            
+
             const cardSpan = card.querySelector('span[data-type="swipe"]');
 
             if(cardSpan.classList.contains('top-[100%]') && !card.dataset.win){
@@ -40,7 +40,7 @@ class UI{
 
         for( let idx = 0; idx < currentCards.length; idx++ ){
             const card = currentCards[idx];
-            
+
             if(card.textContent.trim() === winCard){
                 card.dataset.win = true;
             }

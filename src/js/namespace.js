@@ -61,6 +61,9 @@ class Namespace{
                 }
                 this.clearCurrentPrevCards();
                 UI.listCardsHidden();
+            },
+            resetGame(){
+                
             }
         }
     };

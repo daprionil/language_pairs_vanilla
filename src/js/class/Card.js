@@ -23,15 +23,17 @@ export default class Card{
         cardGameHtml.appendChild(spanCardGame);
         cardGameHtml.appendChild(imageCardGame);
 
-        cardGameHtml.onclick = this.onClickCallback.bind(this);
+        cardGameHtml.onclick = this.onClickCallback.bind(this, cardGameHtml);
 
         return cardGameHtml;
     }
 
-    onClickCallback({target}){
-        target.classList.add('top-[100%]');
-        const {getCurrentCard, getPrevCard} = namespace;
+    onClickCallback(target){
+        if(target.querySelector('span[data-type="swipe"]').classList.contains('top-[100%]')) return;
         
+        target.querySelector('span[data-type="swipe"]').classList.add('top-[100%]');
+        const {getCurrentCard, getPrevCard} = namespace;
+
         if(!getCurrentCard){
             namespace.setCurrentCard = this.namecard;
             UI.displayStats();
