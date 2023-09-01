@@ -58,8 +58,8 @@ class UI{
 
     displayModalWinGame(){
         //! Validate Transition modal - BUG
+        modalStatusBox.parentElement.classList.add('top-0');
         modalStatusBox.parentElement.classList.remove('bottom-full');
-        modalStatusBox.parentElement.classList.add('bottom-0');
 
         modalStatusBox.innerHTML = `
             <div class="text-center drop-shadow-lg">
@@ -69,7 +69,7 @@ class UI{
             <button class="mt-2 font-bold text-white bg-sky-500 btn" data-type="reset_button">Reiniciar<button>
         `;
         modalStatusBox.querySelector('button[data-type="reset_button"]').onclick = () => {
-            modalStatusBox.parentElement.classList.remove('bottom-0');
+            modalStatusBox.parentElement.classList.remove('top-0');
             modalStatusBox.parentElement.classList.add('bottom-full');
 
             namespace.functions.resetGame.bind(namespace)();
