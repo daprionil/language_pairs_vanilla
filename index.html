@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="./src/css/style.css">
   </head>
   <body class="flex items-center min-h-screen py-10 shadow bg-stone-50">
+    <aside class="fixed z-10 flex items-center justify-center w-full h-full transition duration-300 ease-in-out bg-slate-300 bottom-full bg-slate-20">
+      <div class="min-w-[400px] min-h-[400px] flex items-center justify-center" id="modal_status"></div>
+    </aside>
     <div class="w-full max-w-4xl mx-auto min-w-sm bg-stone-100">
       <h1 class="p-4 text-xl font-bold text-center bg-stone-200">GAME PARES</h1>
       <section class="p-4 bg-stone-300">
@@ -20,7 +23,7 @@
         <article class="grid grid-cols-3 gap-5" id="list_cards"></article>
       </section>
       <section class="flex items-center justify-around p-2 bg-red-600">
-        <button class="font-bold text-white bg-sky-500 btn">
+        <button class="font-bold text-white bg-sky-500 btn" id="reset_game">
           Reiniciar
         </button>
         <button class="font-bold text-white bg-blue-100 btn bg-slate-600">

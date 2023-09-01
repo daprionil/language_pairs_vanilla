@@ -56,6 +56,11 @@ class Namespace{
                     UI.parseCardHtml({winCard: this.#currentCard});
                     UI.displayStats();
                     
+                    if(this.#countWins === this.#cards.length){
+                        UI.displayModalWinGame();
+                        return;
+                    }
+
                     this.clearCurrentPrevCards();
                     return;
                 }
@@ -63,7 +68,12 @@ class Namespace{
                 UI.listCardsHidden();
             },
             resetGame(){
-                
+                this.#currentCard = null;
+                this.#prevCard = null;
+                this.#countWins = 0;
+
+                UI.displayStats();
+                UI.listCards();
             }
         }
     };

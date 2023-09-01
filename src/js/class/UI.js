@@ -1,5 +1,5 @@
 import namespace from "../namespace";
-import { countWinsBox, currentCardSelectedBox, listCardsBox } from "../selectors";
+import { countWinsBox, currentCardSelectedBox, listCardsBox, modalStatusBox } from "../selectors";
 import Card from "./Card";
 
 class UI{
@@ -18,7 +18,8 @@ class UI{
 
             frag.appendChild(componentCardGame);
         };
-
+        
+        this.clearChildrens(listCardsBox);
         listCardsBox.append(frag);
     };
     
@@ -53,7 +54,33 @@ class UI{
         const {getCurrentCard, getCountWins} = namespace;
         currentCardSelectedBox.textContent = getCurrentCard;
         countWinsBox.textContent = getCountWins;
+    };
+
+    displayModalWinGame(){
+        //! Validate Transition modal - BUG
+        modalStatusBox.parentElement.classList.remove('bottom-full');
+        modalStatusBox.parentElement.classList.add('bottom-0');
+
+        modalStatusBox.innerHTML = `
+            <div class="text-center drop-shadow-lg">
+                <p class="text-5xl font-black text-white [filter:drop-shadow(0_1px_10px_#29ec39a1)] "> Ganaste </p>
+                <p class="text-white drop-shadow-lg text-bold">Si quiere volver a jugar Reinicia tu juego</p>
+            <div>
+            <button class="mt-2 font-bold text-white bg-sky-500 btn" data-type="reset_button">Reiniciar<button>
+        `;
+        modalStatusBox.querySelector('button[data-type="reset_button"]').onclick = () => {
+            modalStatusBox.parentElement.classList.remove('bottom-0');
+            modalStatusBox.parentElement.classList.add('bottom-full');
+
+            namespace.functions.resetGame.bind(namespace)();
+        };
     }
+
+    clearChildrens(parentElement){
+        while(parentElement.firstElementChild){
+            parentElement.firstElementChild.remove();
+        };
+    };
 };
 
 export default new UI();
