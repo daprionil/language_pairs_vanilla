@@ -1,5 +1,5 @@
 import namespace from "../namespace";
-import { listCardsBox } from "../selectors";
+import { resetGameButton } from "../selectors";
 import UI from "./UI";
 
 class App{
@@ -12,6 +12,7 @@ class App{
     initApp(){
         //Set events to main HTMLElements
         UI.initRenders();
+        resetGameButton.addEventListener('click', namespace.functions.resetGame.bind(namespace));
     }
 }
 
