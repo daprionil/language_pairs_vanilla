@@ -1,6 +1,11 @@
+import UI from "./class/UI";
+
 class Namespace{
     #cards;
     #namecards;
+    #currentCard;
+    #prevCard;
+    #countWins;
 
     constructor(){
         this.#namecards = {
@@ -38,14 +43,63 @@ class Namespace{
                 imgcard:`typescript_card.png`,
             }
         ];
+
+        this.#countWins = 0;
+
+        this.#currentCard = null;
+        this.#prevCard = null;
+        this.functions = {
+            validateCards: () => {
+                if(this.#currentCard === this.#prevCard && this.#currentCard && this.#prevCard){
+                    //! Parse and Add data attribute in HTML to identificate
+                    this.#countWins += 1;
+                    UI.parseCardHtml({winCard: this.#currentCard});
+                    UI.displayStats();
+                    
+                    this.clearCurrentPrevCards();
+                    return;
+                }
+                this.clearCurrentPrevCards();
+                UI.listCardsHidden();
+            }
+        }
     };
 
-    getCards(){
+    get getCards(){
         return this.#cards;
     }
 
-    getNameCards(){
+    get getNameCards(){
         return this.#namecards;
+    }
+
+    //! Prev Card
+    set setPrevCard(value){
+        this.#prevCard = value;
+    }
+    
+    get getPrevCard(){
+        return this.#prevCard;
+    }
+
+    //! Current Card
+    set setCurrentCard(value){
+        this.#currentCard = value;
+    }
+    
+    get getCurrentCard(){
+        return this.#currentCard;
+    }
+
+    //! Clear cards in store
+    clearCurrentPrevCards(){
+        this.#currentCard = null;
+        this.#prevCard = null;
+    };
+
+    //! Count Wins
+    get getCountWins(){
+        return this.#countWins;
     }
 };
 

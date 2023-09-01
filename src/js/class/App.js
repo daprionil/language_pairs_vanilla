@@ -1,5 +1,3 @@
-import namespace from "../namespace";
-import { listCardsBox } from "../selectors";
 import UI from "./UI";
 
 class App{
