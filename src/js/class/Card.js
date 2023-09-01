@@ -16,7 +16,7 @@ export default class Card{
 
         const imageCardGame = document.createElement('DIV');
         imageCardGame.innerHTML = `
-            <img class="h-[150px] object-contain w-full" src="/public/${this.imgcard}">
+            <img class="h-[150px] object-contain w-full" src="/${this.imgcard}">
             <span class="bg-slate-300 duration-300 ease-out w-full h-full top-0 left-0 absolute" data-type="swipe" data-mode="hidden"></span>
         `;
 
